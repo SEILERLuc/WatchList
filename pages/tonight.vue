@@ -1,6 +1,6 @@
 <template>
-    <!-- THE SERIE CHOOSEN FOR TONIGHT-->
     <div class="mx-4 my-2 max-h-80 w-3/4 max-w-xs overflow-y-scroll border-2 px-2 lg:max-w-2xl">
+        <!-- THE SERIE CHOOSEN FOR TONIGHT-->
         <h2 class="mb-1 mt-2 border-b py-2">Je vais regarder quoi ce soir ?</h2>
         <div>
             <ul class="mb-1 mt-1 font-mono text-xs">

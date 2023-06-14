@@ -23,9 +23,9 @@
             </div>
         </div>
 
-        <n-modal v-model:show="showDetails" style="background-color: rgb(25, 99, 99);">
-            <n-card style="width: 600px; padding: 0px;" :title="show.name" :bordered="false" size="huge" role="dialog"
-                aria-modal="true">
+        <n-modal v-model:show="showDetails" style="background-color: #000000; color: aliceblue;" class="p-0">
+            <n-card v-model:show="showDetails" :title="show.name" :bordered="false" size="small" role="dialog"
+                aria-modal="true" class="w-150">
                 <div class="rounded bg-black p-5 text-white">
                     <div class="text-end">
                         <button :disabled="message === ''" @click="emit('addToList', show)"
@@ -35,13 +35,13 @@
                     <div>
                         <h2 class="uppercase font-bold">Genres : {{ show.title }}</h2>
                         <ul class="py-4 flex flex-wrap">
-                            <li v-for="genre in show.genres" class="px-4 m-2 bg-[#DA2D08] rounded-md border-1">{{ genre }}
+                            <li v-for="genre in show.genres" class="px-4 m-2 bg-[#841717] rounded-md border-1">{{ genre }}
                             </li>
                         </ul>
                     </div>
                     <div>
                         <h2 class="mb-2 uppercase font-bold">Description :</h2>
-                        <p class="text-center">{{ show.summary }}</p>
+                        <p class="text-left">{{ show.summary }}</p>
                     </div>
                     <div>
                         <h2 class="pb-4">Average: </h2>

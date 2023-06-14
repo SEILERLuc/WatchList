@@ -1,20 +1,36 @@
 <template>
-  <div class="relative lg:pb-40 bg-[#090A0B]">
+  <div class="relative bg-[#090A0B]">
     <nav
-      class="flex items-center justify-between bg-zinc-900 py-4 px-8 bottom-0 fixed w-[100%] z-100 sm:top-0 sm:fixed sm:sticky">
-      <div>
+      class="flex items-center justify-between bg-zinc-900 sm:bg-opacity-85 backdrop-blur-lg py-4 px-8 bottom-0 fixed w-[100%] z-100 sm:top-0 sm:fixed sm:sticky">
+      <!--<div>
         <h1 class="rounded bg-red-600 p-2">WSWWT</h1>
-      </div>
+      </div>-->
+      <!--<div>
+        <h1 class="px-2 font-bold text-red-700 text-4xl">WSWWT</h1>
+      </div>-->
+      <img src="/img/UI/WSWWT-logo.png" class="h-14" alt="logo" />
       <ul class="flex flex-col flex-wrap items-start sm:flex-row text-white">
-        <li class="px-6"><a href="/home">Home</a></li>
-        <li v-if="myShowList.length !== 0" class="px-6"><a href="/tonight">WSWWTonight</a></li>
+        <li class="px-6 flex flex-row items-center">
+          <img src="/img/UI/home.png" class="w-6 mr-2" alt="WSWWT" />
+          <a href="/">Home</a>
+        </li>
+        <li v-if="myShowList.length !== 0" class="px-6 flex flex-row items-center">
+          <img src="/img/UI/pop-corn.png" class="w-6 mr-1" alt="WSWWT" />
+          <a href="/tonight">WSWWTonight</a>
+        </li>
         <li class="px-6"><a href="/myList" :showList="myShowList">My List</a></li>
       </ul>
     </nav>
-    <!--/img/characters/lui-kang.png-->
     <div class="flex flex-col items-center justify-center">
-      <img src="/img/background.jpg" class="w-[100%] max-h-sm relative" alt="background" />
-      <h1 class="md:w-[90%] mx-6 text-center font-extrabold absolute uppercase text-sm sm:text-5xl">What Should
+      <!--VERSION WITH CINEMA BACKGROUND-->
+      <!--<img src="/img/background.jpg" class="w-[100%] max-h-70 relative" alt="background" />-->
+      <!--<h1 class="md:w-[90%] mx-6 text-center font-extrabold absolute uppercase text-sm sm:text-5xl">What Should
+        We Watch Tonight ?
+      </h1>-->
+      <!--VERSION WITH WSWWT LOGO-->
+      <img src="/img/UI/WSWWT-logo-v2.png" class="w-[500px] max-w-[75%] max-h-80 relative" alt="background" />
+      <h1 class="md:w-[90%] sm:mb-12 text-center text-red-600 font-extrabold uppercase text-sm sm:text-2xl">What
+        Should
         We Watch Tonight ?
       </h1>
     </div>
@@ -26,9 +42,8 @@
           <div v-for="(genre, index) in genres" :key="index" class="px-1 my-2 flex flex-col">
             <input :class="{ active: genre === activeGenre }" type="radio" id="show" class="hidden" name="filterShow">
             <label for="show"
-              class="color-white border rounded-md w-16 h-8 sm:w-18 sm:h-10 flex justify-center items-center"><button
-                type=button @click="filterShow(genre)">{{ genre
-                }}</button></label>
+              class="color-white border rounded-md w-16 h-8 sm:w-18 sm:h-10 flex justify-center items-center hover:rotate-10 duration-200"><button
+                type=button @click="filterShow(genre)">{{ genre }}</button></label>
           </div>
         </div>
         <h2 class="mb-1 mt-2 py-2 font-bold text-lg sm:text-3xl color-white">Research ({{ activeGenre }})</h2>
@@ -72,20 +87,39 @@
       <TonightChoice />
     </div>
 
-    <!-- FOOTER -->
-    <footer class="bottom-0 h-40 w-[100%] bg-[#0E1A2D] p-4 pt-10 text-white">
-      <h2 class="mb-8 flex flex-wrap justify-center text-center font-semibold">Thank you for using this app :</h2>
+    <!-- FOOTER bg-[#0E1A2D] -->
+    <footer class="bottom-0 w-[100%] bg-zinc-900 p-4 pt-10 text-white">
+      <h2 class="mb-5 flex flex-wrap justify-center text-center font-semibold">Thank you for using this app :</h2>
+
+      <!--TECHNO INFOS-->
+      <div class="flex flex-col items-center pt-6">
+        <h2 class="mb-2 text-center font-semibold">Created with:</h2>
+        <p>Nuxt</p>
+        <p>NaiveUI</p>
+        <p>TailWind</p>
+        <p>🍍 Pinia</p>
+      </div>
 
       <!--INFO-->
       <div class="flex flex-row justify-between pt-6">
         <p>2023</p>
-        <p>Créé par Luc Seiler</p>
+        <p>Created by Luc Seiler</p>
       </div>
     </footer>
   </div>
 </template>
 
 <script setup>
+
+const route = useRoute()
+console.log(route.path)
+
+/*TEST STORE PINIA*/
+
+/*import { useUserShowList } from '~/stores/userList';
+
+const userList = useUserListStore()*/
+
 const search = ref(null)
 
 const { data: shows } = await useAsyncData(
