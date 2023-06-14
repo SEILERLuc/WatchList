@@ -1,5 +1,5 @@
 <template>
-    <li class="max-w-24 sm:max-w-32 m-1 py-2">
+    <li class="max-w-24 sm:max-w-32 m-1.5 pb-2 bg-zinc-800 bg-opacity-50 rounded-2xl">
         <!--<div @click="showDetails = true" class="w-32 h-44 bg-red-100 relative cursor-pointer hover:font-bold duration-100">
             <div class=" absolute inset-0 bg-cover bg-center z-0">
                 <img :src="show.image.original"
@@ -11,11 +11,16 @@
                 class="opacity-0 hover:opacity-100 duration-300 absolute inset-0 z-10 flex justify-center items-center text-6xl text-white font-semibold">
                 {{ show.name }}</div>
         </div>-->
-        <div @click="showDetails = true" class="cursor-pointer hover:font-bold hover:text-red-600 duration-100">
-            <img :src="show.image.original"
-                class="mb-2 h-32 w-22 sm:h-44 sm:w-32 rounded-md duration-300 hover:scale-105 hover:opacity-25"
+        <div class="hover:font-bold hover:text-red-600 duration-100">
+            <img :src="show.image.original" @click="showDetails = true"
+                class="mb-2 h-32 w-22 sm:h-44 sm:w-32 cursor-pointer rounded-md duration-300 hover:scale-105 hover:opacity-25"
                 alt="name" />
-            <h3 class="hidden sm:block dark:text-zinc-400 sm:text-sm text-white">{{ show.name }}</h3>
+            <div class="px-2 flex flex-row justify-between">
+                <h3 class="hidden sm:block dark:text-zinc-400 sm:text-sm text-white">{{ show.name }}</h3>
+                <button :disabled="message === ''" @click="emit('addToList', show)"
+                    class="h-5 w-5 bg-red-100 px-2 disabled:text-yellow-400 border-1 hover:scale-95 duration-100 text-white flex items-center justify-center rounded-full"
+                    type="button">+</button>
+            </div>
         </div>
 
         <n-modal v-model:show="showDetails" style="background-color: rgb(25, 99, 99);">
