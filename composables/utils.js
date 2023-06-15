@@ -10,3 +10,4 @@ export function debounce(callback, timeout) {
         callback()
     }, timeout)
 }
+
