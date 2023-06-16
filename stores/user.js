@@ -1,21 +1,6 @@
 import { defineStore } from 'pinia'
 
-/*export const useUserListStore = defineStore('userList', () => {
-    const name = ref('WSWWT')
-    const showList = ref([])
-    const nbrShow = ref(showList.length)
-
-    function addToList(show) {
-        showList.value.push(show)
-    }
-
-    function deleteFromList(show) {
-    }
-    persist = true
-
-    return { name, showList, nbrShow, addToList, deleteFromList }
-})*/
-
+/*USER STORE to store the list of chosen shows*/
 export const useUserStore = defineStore('user', {
     state: () => ({ name: 'WSWWT User', showList: [], nbrShow: 0 }),
     getters: {
@@ -29,6 +14,7 @@ export const useUserStore = defineStore('user', {
             } else {
                 console.log("Non ajouté")
             }
+            return this.showList
         },
         deleteFromList(id) {
             console.log("Delete a show with this id")
@@ -38,11 +24,11 @@ export const useUserStore = defineStore('user', {
                     console.log("OK", i)
                     this.showList.slice(i, 1)
                     this.nbrShow = this.showList.length
-                    console.log(this.showList[0])
-                    return
+                    console.log(this.showList)
                 }
             }
             this.nbrShow = this.showList.length
+            return this.showList
         },
         isAlreadyInList(id) {
             if (this.showList === 0) return false
@@ -50,6 +36,16 @@ export const useUserStore = defineStore('user', {
                 if (id === this.showList[i].id) return true
             }
             return false
+        },
+        clearList() {
+            console.log("CLEAR THE FULL LIST")
+            this.showList = []
+            console.log(this.showList)
+            return this.showList
+        },
+        chooseTheShow() {
+            console.log("CHOSING THE SHOW FOR TONIGHT")
+
         }
     },
     persist: {

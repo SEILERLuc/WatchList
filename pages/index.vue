@@ -1,51 +1,13 @@
 <template>
   <div class="relative bg-[#090A0B]">
-    <!--<nav v-show="showNavbar"
-      class="sm:flex-between sm:bg-opacity-85 z-100 fixed bottom-0 flex w-[100%] items-center justify-between bg-zinc-900 py-4 backdrop-blur-lg sm:sticky sm:top-0 sm:px-8">-->
-    <!--<nav
-      class="sm:flex-between sm:bg-opacity-85 z-100 fixed bottom-0 flex w-[100%] items-center justify-between bg-zinc-900 py-4 backdrop-blur-lg sm:sticky sm:top-0 sm:px-8">
-      <img src="/img/UI/WSWWT-logo.png" class="hidden h-14 sm:block" alt="logo" />
-      <ul class="flex w-[100%] flex-row items-center justify-around text-white sm:justify-end">
-        <li class="px-6">
-          <a href="/" class="flex flex-col items-center">
-            <img src="/img/UI/home.png" class="w-6" alt="WSWWT" />
-            <h4 class="hidden sm:block">Home</h4>
-          </a>
-        </li>
-        <li v-if="user.showList.length !== 0" class="flex flex-row items-center px-6">
-          <a href="/tonight" class="flex flex-col items-center">
-            <img src="/img/UI/pop-corn.png" class="w-6" alt="WSWWT" />
-            <h4 class="hidden sm:block">WSWWT</h4>
-          </a>
-        </li>
-        <li class="flex flex-col items-center px-6">
-          <a href="/myList" class="flex flex-col items-center">
-            <img src="/img/UI/pop-corn.png" class="w-6" alt="WSWWT" />
-            <div class="flex flex-row">
-              <h4 class="hidden sm:block">My List</h4>
-              <p v-if="user.showList.length > 0" class="bg-red text-xs rounded-full text-white px-2 mx-1">
-                {{ user.showList.length }}
-              </p>
-            </div>
-          </a>
-        </li>
-      </ul>
-    </nav>-->
     <AppHeader />
-    <!--<div class="flex flex-col items-center justify-center">
-      <img src="/img/UI/WSWWT-logo-v2.png" class="relative max-h-80 w-[500px] max-w-[75%]" alt="background" />
-      <h1 class="text-center text-sm font-extrabold uppercase text-red-600 mx-4 sm:mb-12 sm:text-2xl md:w-[90%]">What
-        Should We
-        Watch Tonight ?</h1>
-    </div>-->
     <AppTitle />
-    <!--<form @click="user.addToList('hi')">
-      <input v-model="todo" type="radio" />
-    </form>-->
 
+    <!--PAGE CONTENT : LIST OF SHOWS AND SEARCHBAR/FILTERS-->
     <div class="mb-16 flex flex-col items-center">
-      <!-- RESEARCH OF A SERIE-->
+      <!--LIST OF THE SHOWS-->
       <div class="mb-2 mt-12 flex flex-col items-center px-2">
+        <!--FILTER BAR-->
         <div class="flex flex-wrap justify-center">
           <div v-for="(genre, index) in genres" :key="index" class="my-2 flex flex-col px-1">
             <input :class="{ active: genre === activeGenre }" type="radio" id="show" class="hidden" name="filterShow" />
@@ -54,40 +16,30 @@
                 type="button" @click="filterShow(genre)">{{ genre }}</button></label>
           </div>
         </div>
-        <h2 class="color-white mb-1 mt-2 py-2 text-lg font-bold sm:text-3xl">Research ({{ activeGenre }})</h2>
-        <input type="text" v-model="userInput"
-          class="sm:w-128 duration-50 mb-1 mt-1 h-8 w-48 rounded-2xl bg-zinc-800 px-8 text-white hover:border-2 sm:h-12"
-          placeholder="Homeland, Arrow, Berserk..." />
+        <!--SEARCH BAR-->
+        <div class="flex flex-col items-center justify-center">
+          <h2 class="color-white mb-1 mt-2 py-2 text-lg font-bold sm:text-3xl">Research ({{ activeGenre }})</h2>
+          <input type="text" v-model="userInput"
+            class="sm:w-128 duration-50 mb-1 mt-1 h-8 w-48 rounded-2xl bg-zinc-800 px-8 text-white hover:border-2 sm:h-12"
+            placeholder="Homeland, Arrow, Berserk..." />
+        </div>
         <div v-if="activeGenre !== 'All'" class="flex flex-row items-start">
           <h3 class="color-white mb-1 mt-2 py-2 text-lg font-bold sm:text-3xl">Filtered by {{ activeGenre }}</h3>
         </div>
         <div>
-          <ul class="mb-1 mt-1 flex flex-wrap justify-center font-mono text-xs">
-            <ListCard v-for="show in filteredList()" :show="show" @addToList="addToList" />
+          <!--CARD LIST OF THE SHOWS-->
+          <ul class="mb-1 mt-1 flex flex-wrap justify-center font-mono text-xs max-w-7xl">
+            <!--<ListCard v-for="show in filteredList()" :show="show" @addToList="addToList" />
+            <div v-if="userInput && !filteredList().length">
+              <h2 class="color-white mb-1 mt-2 py-2 text-2xl font-bold">No result found.</h2>
+            </div>-->
+            <ListCard v-for="show in filteredList()" :show="show" />
             <div v-if="userInput && !filteredList().length">
               <h2 class="color-white mb-1 mt-2 py-2 text-2xl font-bold">No result found.</h2>
             </div>
           </ul>
         </div>
       </div>
-
-      <!-- THE LIST OF THE SERIES REGISTERED-->
-      <!--<div class="mx-4 my-2 h-80 max-h-80 w-3/4 max-w-xs overflow-y-scroll border-2 bg-white px-2 lg:max-w-md">
-        <h2 class="mb-1 mt-2 border-b py-2">Ma liste</h2>
-        <div>
-          <ul class="mb-1 mt-1 font-mono text-xs">
-            <MyListCard v-for="show in myShowList" :show="show" />
-          </ul>
-        </div>
-        <div v-if="myShowList.length == 0" class="flex flex-col justify-between font-extrabold">
-          <p>Nothing in your list</p>
-          <p>Add show to your list by research</p>
-        </div>
-      </div>
-
-      <MyListCard v-for="show in showSelected" :show="show" @addForSelection="addForSelection" />
-
-      <TonightChoice />-->
     </div>
 
     <AppAbout />
@@ -115,8 +67,10 @@
 </template>
 
 <script setup>
-
 /*User Store --> Pinia*/
+const message = useMessage()
+message.info('WELCOME')
+
 import { useUserStore } from '~/stores/user'
 
 const user = useUserStore()
@@ -139,9 +93,7 @@ const { data: shows } = await useAsyncData(
   ]
 }
 )
-
 //console.log(shows.value[0].name)
-
 /*Code for user interactions : research, filter*/
 let userInput = ref("")
 const genres = ref(['All', 'Horror', 'Comedy', 'Drama', 'Action', 'Crime', 'Music'])
@@ -172,26 +124,4 @@ function filterShow(genre) {
   console.log("Filtre appliqué, genre = ", genre)
   return activeGenre.value
 }
-
-const myShowList = ref([])
-
-function addToList(show) {
-  console.log("=== Ajout de la série dans la liste ===")
-  //console.log(show)
-  if (myShowList.value.includes(show)) {
-    console.log("This show is already in the list")
-  } else {
-    myShowList.value.unshift(show)
-
-  }
-  console.log(myShowList.value)
-}
-
-const showSelected = ref([])
-
-function addForSelection(show) {
-  console.log("=== SHOW SELECTED FOR TONIGHT ===")
-  showSelected.value.push(show)
-}
-
 </script>
