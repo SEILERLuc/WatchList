@@ -4,6 +4,12 @@
         <img src="/img/UI/WSWWT-logo.png" class="hidden h-14 sm:block" alt="logo" />
         <!--LIST OF PAGES LINKS-->
         <ul class="flex w-[100%] flex-row items-center justify-around text-white sm:justify-end">
+            <NuxtLink to="/search" class="px-6 hover:-translate-y-2 duration-300 w-24">
+                <div class="flex flex-col items-center">
+                    <img src="/img/UI/research.png" class="w-6" alt="WSWWT" />
+                    <h4 class="hidden sm:block">Research</h4>
+                </div>
+            </NuxtLink>
             <!--LINK: HOME-->
             <NuxtLink to="/" class="px-6 hover:-translate-y-2 duration-300 w-24">
                 <div class="flex flex-col items-center">

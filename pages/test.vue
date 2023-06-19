@@ -1,61 +1,61 @@
 <template>
-    <!--<ul>
-            <li v-for="cafe in cafes.data" :key="cafe.id" v-text="cafe.company.name + ' - ' + cafe.location_name"></li>
-        </ul>
-        <ul>
-            <li v-for="serie in series.data" :key="serie.id" v-text="serie.name"></li>
-        </ul>
-    </div>-->
-    <div>{{ shows[0].name }}</div>
-    <div v-for="show in shows">
-        <ShowCard :show="show" />
+    <div>
+        <div class="flex flex-col items-center justify-center">
+            <h2 class="color-white mb-1 mt-2 py-2 text-lg font-bold sm:text-3xl"></h2>
+            <input type="text" v-model="userInput"
+                class="sm:w-128 duration-50 mb-1 mt-1 h-8 w-48 rounded-2xl bg-zinc-800 px-8 text-white hover:border-2 sm:h-12"
+                placeholder="Homeland, Arrow, Berserk..." />
+        </div>
+        <ListCard v-for="show in filteredList()" :show="show" />
+        <div v-if="userInput && !filteredList().length">
+            <h2 class="color-white mb-1 mt-2 py-2 text-2xl font-bold">No result found.</h2>
+        </div>
+        <div class="relative bg-[#090A0B] text-white">
+            {{ showsList }}
+        </div>
+        <div class="relative bg-[#090A0B] text-white">
+            {{ test }}
+        </div>
     </div>
 </template>
-
 <script setup>
+import { onMounted } from 'vue'
+const message = useMessage()
+message.info('TEST')
 
-/*title, image, year, lenght on an episode, rating*/
+const showsList = ref([])
+const test = ref([])
 
-const search = ref('');
+/*const q = ref("boys")
 
-const { data: shows, error } = await useAsyncData(
-    'series',
-    () => $fetch(`/shows`, {
-        method: 'GET',
-        baseURL: 'https://api.tvmaze.com',
+const { data: shows } = await useAsyncData(
+    'shows',
+    () => $fetch('https://api.tvmaze.com/search/shows', {
         params: {
-            search: search.value,
+            q: q.value
         }
     }), {
-    watch: [
-        search
-    ]
+    watch: [q]
 }
-);
-console.log(shows)
-/*const currentId = ref(1);
-const currentPokemon = ref();
-const fetchPokemonForCurrentId = async () => {
-    const pokemon = await $fetch(`https://pokeapi.co/api/v2/pokemon/${currentId.value}`);
-    currentPokemon.value = {
-        name: pokemon.name,
-        imageUrl: pokemon.sprites.front_default,
-    };
-};
-onBeforeMount(() => {
-    fetchPokemonForCurrentId();
-});
-const nextPokemon = async () => {
-    currentId.value++;
-    await fetchPokemonForCurrentId();
-};
-const previousPokemon = async () => {
-    if (currentId.value > 1) {
-        currentId.value--;
-    }
-    await fetchPokemonForCurrentId();
-};
+)
+console.log(shows)*/
+const q = ref("")
+let userInput = ref("")
 
-console.log(currentPokemon)*/
+async function filteredList() {
+    const { data: shows } = await useAsyncData(
+        'shows',
+        () => $fetch('https://api.tvmaze.com/search/shows', {
+            params: {
+                q: userInput.value
+            }
+        }), {
+        watch: [q]
+    }
+    )
+    console.log(shows.value)
+    test.value = shows.value
+    return shows.value
+}
 
 </script>

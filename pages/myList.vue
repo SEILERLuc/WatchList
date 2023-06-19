@@ -32,6 +32,8 @@
                 Nothing in your list.<br> Return to home to add shows in your wachlist !
             </h2>
         </div>
+
+        <AppFooter />
     </div>
 </template>
 

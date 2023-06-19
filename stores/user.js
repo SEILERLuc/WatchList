@@ -22,9 +22,9 @@ export const useUserStore = defineStore('user', {
                 console.log(this.showList[i].id, id)
                 if (this.showList[i].id === id) {
                     console.log("OK", i)
-                    this.showList.slice(i, 1)
-                    this.nbrShow = this.showList.length
+                    this.showList = this.showList.slice(i, 1)
                     console.log(this.showList)
+                    this.nbrShow = this.showList.length
                 }
             }
             this.nbrShow = this.showList.length
@@ -43,9 +43,11 @@ export const useUserStore = defineStore('user', {
             console.log(this.showList)
             return this.showList
         },
-        chooseTheShow() {
+        chooseShow() {
             console.log("CHOSING THE SHOW FOR TONIGHT")
-
+            let choice = Math.floor(Math.random() * this.nbrShow)
+            console.log(choice, this.showList[choice])
+            return choice
         }
     },
     persist: {
