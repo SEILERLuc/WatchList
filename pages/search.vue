@@ -1,12 +1,14 @@
 <template>
-    <div class="relative bg-[#090A0B]">
+    <div class="relative bg-[#090A0B] min-h-screen">
         <AppHeader />
         <AppTitle />
 
-        <n-input @update:value="debounce(searchByName, 500)" class="mb-8" v-model:value="search" type="text"
-            placeholder="Basic Input" />
-        <div v-show="shows.length !== 0">
-            <ul class="mb-1 mt-1 flex flex-wrap justify-center font-mono text-xs max-w-7xl">
+        <div class="flex flex-col items-center mb-8">
+            <n-input @update:value="debounce(searchByName, 500)" class="text-white" v-model:value="search" type="text"
+                placeholder="Flash, Homeland, Arrow..." />
+        </div>
+        <div v-show="shows.length !== 0" class="flex flex-col items-center">
+            <ul class="mb-8 mt-1 flex flex-wrap justify-center font-mono text-xs max-w-7xl">
                 <ListCard v-for="show in shows" :show="show" />
                 <!--<li v-for="show in shows" class="max-w-80 sm:max-w-80 m-1.5 pb-2 bg-zinc-800 bg-opacity-50 rounded-2xl">
                     {{ show.name }}
@@ -32,16 +34,20 @@
                     </div>
                 </li>-->
             </ul>
+
         </div>
-        <pre v-for="show in shows">{{ show.name }}, {{ show.id }}</pre>
+        <div v-if="search && shows.length === 0">
+            <h2 class="color-white mb-1 mt-2 py-2 text-2xl font-bold">No result found.</h2>
+        </div>
+        <!--<pre v-for="show in shows">{{ show.name }}, {{ show.id }}</pre>-->
+
+        <AppAbout />
         <AppFooter />
     </div>
 </template>
 
 <script setup>
 import { debounce } from '~/composables/utils'
-import { useUserStore } from '~/stores/user';
-const user = useUserStore()
 
 const search = ref(null)
 const shows = ref([])
@@ -70,11 +76,17 @@ async function searchByName() {
 </script>
 
 <style>
-.n-input__input {
+.n-input {
     border: none !important;
-    width: 80% !important;
     color: red !important;
     padding: 0 !important;
+    width: 30% !important;
+    height: 40px !important;
+    background-color: #27272A !important;
+}
+
+.n-input__input-el {
+    color: wheat;
 }
 
 .n-input-wraper {
@@ -82,6 +94,10 @@ async function searchByName() {
     width: 80% !important;
     color: red !important;
     padding: 0 !important;
+}
+
+.n-input:hover {
+    border-color: red;
 }
 
 .n-input__border {

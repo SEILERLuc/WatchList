@@ -1,5 +1,5 @@
 <template>
-  <div class="relative bg-[#090A0B]">
+  <div class="relative bg-[#090A0B] min-h-screen">
     <AppHeader />
     <AppTitle />
 
@@ -48,18 +48,7 @@
 </template>
 
 <script setup>
-/*User Store --> Pinia*/
-const message = useMessage()
-message.info('WELCOME')
-
-import { useUserStore } from '~/stores/user'
-
-const user = useUserStore()
-console.log(user.name)
-
-/*Get all the shows from the API*/
 const search = ref(null)
-
 const { data: shows } = await useAsyncData(
   'shows',
   () => $fetch(`/shows`, {
@@ -74,9 +63,8 @@ const { data: shows } = await useAsyncData(
   ]
 }
 )
-console.log(shows.value)
+
 //console.log(shows.value[0].name)
-/*Code for user interactions : research, filter*/
 let userInput = ref("")
 const genres = ref(['All', 'Horror', 'Comedy', 'Drama', 'Action', 'Crime', 'Music'])
 const activeGenre = ref('All')

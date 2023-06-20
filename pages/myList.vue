@@ -1,9 +1,9 @@
 <template>
-    <div class="relative bg-[#090A0B]">
+    <div class="relative bg-[#090A0B] min-h-screen">
         <AppHeader />
 
         <!--ABOUT : THE USER LIST-->
-        <div v-show="user.showList.length !== 0" class="flex flex-col items-center justify-center">
+        <div class="flex flex-col items-center justify-center">
             <img src="/img/UI/WSWWT-logo-v2.png" class="mb-6 relative max-h-80 w-[150px] max-w-[75%]" alt="background" />
             <h1 class="text-center text-sm font-extrabold uppercase text-red-600 mx-4 sm:mb-12 sm:text-2xl md:w-[90%]">
                 Your list
@@ -13,9 +13,12 @@
                     This is your list. You can delete a show, or delete ALL with the button.
                 </p>
             </div>
-            <div class="bg-[#DC2626] rounded-full px-4 py-2 mt-6">
-                <n-button @click="showModal = true" class="text-white border-0">
-                    Clear the list
+            <div v-show="user.showList.length !== 0" class="bg-zinc-700 rounded-full px-4 py-2 mt-6">
+                <n-button @click="showModal = true" class="text-white border-0" type="button">
+                    <div class="flex flex-col items-center">
+                        <img src="/img/UI/clear-button.png" class="w-12 mb-2" alt="clear list" />
+                        <h3>Clear the list</h3>
+                    </div>
                 </n-button>
             </div>
         </div>
@@ -24,8 +27,8 @@
             class="bg-zinc-900 text-white" />
 
         <!-- THE LIST OF THE SERIES REGISTERED-->
-        <div class="mb-16 flex flex-col items-center">
-            <ul class="mb-1 mt-10 flex flex-wrap justify-center font-mono text-xs max-w-7xl">
+        <div v-show="user.showList.length !== 0" class="mb-16 flex flex-col items-center">
+            <ul class="mb-48 mt-10 flex flex-wrap justify-center font-mono text-xs max-w-7xl">
                 <UserShowList />
             </ul>
             <h2 v-show="user.showList.length === 0" class="color-white mb-1 mt-2 py-2 text-lg font-bold sm:text-3xl">
@@ -39,23 +42,26 @@
 
 <script setup>
 import { useUserStore } from '~/stores/user'
-const user = useUserStore()
 
+const user = useUserStore()
 const message = useMessage()
 const showModal = ref(false)
 
 function cancelCallback() {
     message.success('List saved')
 }
+
 function submitCallback() {
     user.clearList()
     message.success('List cleared')
 }
-
-
 </script>
 
 <style>
+.n-button {
+    border: none !important;
+}
+
 .n-dialog__title {
     color: white !important;
 }

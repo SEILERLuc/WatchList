@@ -19,11 +19,8 @@ export const useUserStore = defineStore('user', {
         deleteFromList(id) {
             console.log("Delete a show with this id")
             for (var i = 0; i < this.showList.length; i++) {
-                console.log(this.showList[i].id, id)
                 if (this.showList[i].id === id) {
-                    console.log("OK", i)
-                    this.showList = this.showList.slice(i, 1)
-                    console.log(this.showList)
+                    this.showList.splice(i, 1)
                     this.nbrShow = this.showList.length
                 }
             }
@@ -40,13 +37,11 @@ export const useUserStore = defineStore('user', {
         clearList() {
             console.log("CLEAR THE FULL LIST")
             this.showList = []
-            console.log(this.showList)
             return this.showList
         },
         chooseShow() {
             console.log("CHOSING THE SHOW FOR TONIGHT")
             let choice = Math.floor(Math.random() * this.nbrShow)
-            console.log(choice, this.showList[choice])
             return choice
         }
     },
