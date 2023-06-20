@@ -16,6 +16,7 @@
 
 <script setup>
 import '@unocss/reset/tailwind.css'
+import '~/assets/css/app.scss'
 import { frFR, dateFrFR } from 'naive-ui'
 import { setDefaultOptions } from 'date-fns'
 import { fr } from 'date-fns/locale'

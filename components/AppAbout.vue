@@ -4,19 +4,42 @@
             alt="About" />
         <!--<img src="/img/UI/WSWWT-logo-v2.png" class="mb-10 relative max-h-80 w-[150px] max-w-[75%]" alt="background" />-->
         <h1 class="text-center text-sm font-extrabold uppercase text-red-600 mx-4 sm:mb-8 sm:text-2xl md:w-[90%]">
-            About this app
+            Why this app ?
         </h1>
         <!--ABOUT: APP PAGES-->
         <div
             class="mt-2 mb-12 flex flex-col items-center text-white text-md px-10 max-w-[350px] sm:px-12 sm:max-w-xl sm:text-xl">
+            <div class="flex flex-col items-center my-4">
+                <p class="text-justify mt-4">
+                    This app is here to give a response to problems like this :
+                </p>
+            </div>
+            <div class="flex flex-col items-center my-4">
+                <img src="/img/UI/problem.png" class="w-24" alt="HOME PAGE" />
+                <p class="text-justify mt-4">
+                    Alice and Bob are TV series enthusiasts. They watch several series in parallel
+                    and have a heavy backlog of new series to watch. However, when the time
+                    comes to turn on the TV and decide which series to watch, they do not
+                    always agree, and the choice can be difficult. Therefore, Alice and Bob
+                    would rather rely on a totally impartial third-party to help them make this
+                    critical decision.
+                </p>
+            </div>
+            <h1 class="text-center text-sm font-extrabold uppercase text-red-600 mx-4 mt-6  sm:text-2xl md:w-[90%]">
+                About this app
+            </h1>
+            <div class="flex flex-col items-center my-4">
+                <p class="text-justify mt-4">
+                    This app has been created for help you to choose a show for the night. You can search a show, by search
+                    bar or filters with your family or your friends. It is composed by 4 pages :
+                </p>
+            </div>
             <!--ABOUT: HOME PAGE-->
             <div class="flex flex-col items-center my-4">
                 <img src="/img/UI/home.png" class="w-8" alt="HOME PAGE" />
                 <p class="text-justify mt-4">
-                    This app has been created for help you to choose a show for the night. You can search a show, by search
-                    bar or filters with your family or your friends. The page Home show you some of shows availables, from
-                    the
-                    beginning of the API (the first 250 shows). They are suggestions for you.
+                    The page Home show you some of shows availables, from the beginning of the API (the first 250 shows).
+                    They are suggestions for you.
                 </p>
             </div>
             <!--ABOUT: RESEARCH PAGE-->
@@ -35,7 +58,8 @@
             <div class="flex flex-col items-center my-4">
                 <img src="/img/UI/list.png" class="w-8" alt="RESEARCH PAGE" />
                 <p class="text-justify my-4">
-                    The number of shows in your list increase when you add them to your list. Here, you can <i><b>see all
+                    The number of shows in your list increase when you add them to your list page. Here, you can <i><b>see
+                            all
                             the shows registered</b></i>, and can choose to <i><b>keep them or not</b></i>. You can also
                     choose to
                     clear all the list !
@@ -45,7 +69,8 @@
             <div class="flex flex-col items-center my-4">
                 <img src="/img/UI/pop-corn.png" class="w-8" alt="CHOSEN SHOW" />
                 <p class="text-justify my-4">
-                    This page appears at the moment you choose your first show, and add it to your list. This page
+                    This page (WSWWT : What Sould We Watch Tonight) appears at the moment you choose your first show, and
+                    add it to your list. This page
                     <i><b>choose for you a random show</b></i>, between all of them from your list. But you can restart the
                     choice if you do not like it.
                 </p>

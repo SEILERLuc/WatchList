@@ -1,7 +1,6 @@
 <template>
     <div class="relative bg-[#090A0B] min-h-screen">
         <AppHeader />
-
         <!--ABOUT : THE USER LIST-->
         <div class="flex flex-col items-center justify-center">
             <img src="/img/UI/WSWWT-logo-v2.png" class="mb-6 relative max-h-80 w-[150px] max-w-[75%]" alt="background" />
@@ -13,13 +12,14 @@
                     This is your list. You can delete a show, or delete ALL with the button.
                 </p>
             </div>
-            <div v-show="user.showList.length !== 0" class="bg-zinc-700 rounded-full px-4 py-2 mt-6">
-                <n-button @click="showModal = true" class="text-white border-0" type="button">
-                    <div class="flex flex-col items-center">
-                        <img src="/img/UI/clear-button.png" class="w-12 mb-2" alt="clear list" />
+            <div v-show="user.showList.length !== 0" class="mt-6">
+                <button @click="showModal = true" class="text-white border-0" type="button">
+                    <div
+                        class="flex flex-row items-center justify-center bg-zinc-700 p-2 rounded-lg hover:scale-90 duration-200">
+                        <img src="/img/UI/clear-button.png" class="mr-2 w-10" alt="clear list" />
                         <h3>Clear the list</h3>
                     </div>
-                </n-button>
+                </button>
             </div>
         </div>
         <n-modal v-model:show="showModal" preset="dialog" title="Dialog" content="Are you sure to clear the list?"
@@ -57,6 +57,7 @@ function submitCallback() {
 }
 </script>
 
+<!--<style lang="scss" scoped>-->
 <style>
 .n-button {
     border: none !important;

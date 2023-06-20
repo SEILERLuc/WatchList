@@ -1,0 +1,43 @@
+/*CUSTOM SCROLLBAR*/
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 80px rgba(0, 0, 0, 0.9);
+}
+
+::-webkit-scrollbar {
+    width: 15px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #D62929;
+    background-image: -webkit-linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.4) 50%, transparent, transparent)
+}
+
+/*CUSTOM INPUT NAIVE UI*/
+.n-input .n-input__input-el {
+    color: white !important;
+}
+
+.n-input__border {
+    border: 50px !important;
+}
+
+/*CUSTOM NAIVE UI CARD*/
+.n-card {
+    max-width: 300px !important;
+    max-height: 400px !important;
+    overflow-y: scroll !important;
+}
+
+.n-card__content {
+    max-height: 1000px !important;
+    padding: 10px !important;
+}
+
+.n-button {
+    background-color: #251a1a !important;
+}
+
+.n-button__content {
+    color: antiquewhite !important;
+}

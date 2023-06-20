@@ -8,9 +8,11 @@ export const useUserStore = defineStore('user', {
     },
     actions: {
         addToList(show) {
+            //const message = useMessage()
             if (!this.isAlreadyInList(show.id)) {
                 this.showList.push(show)
                 this.nbrShow = this.showList.length
+                //message.success("added to your list")
             } else {
                 console.log("Non ajouté")
             }

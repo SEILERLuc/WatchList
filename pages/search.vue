@@ -34,10 +34,11 @@
                     </div>
                 </li>-->
             </ul>
-
         </div>
-        <div v-if="search && shows.length === 0">
-            <h2 class="color-white mb-1 mt-2 py-2 text-2xl font-bold">No result found.</h2>
+        <div class="flex flex-col items-center">
+            <div v-if="search && shows.length === 0">
+                <h2 class="color-white mb-1 mt-2 py-2 text-2xl font-bold">No result found.</h2>
+            </div>
         </div>
         <!--<pre v-for="show in shows">{{ show.name }}, {{ show.id }}</pre>-->
 
@@ -80,27 +81,14 @@ async function searchByName() {
     border: none !important;
     color: red !important;
     padding: 0 !important;
-    width: 30% !important;
+    width: 70% !important;
     height: 40px !important;
     background-color: #27272A !important;
 }
 
-.n-input__input-el {
-    color: wheat;
-}
-
-.n-input-wraper {
-    border: none !important;
-    width: 80% !important;
-    color: red !important;
-    padding: 0 !important;
-}
-
-.n-input:hover {
-    border-color: red;
-}
-
-.n-input__border {
-    border: 50px !important;
+@media screen and (min-width: 640px) {
+    .n-input {
+        width: 400px !important;
+    }
 }
 </style>

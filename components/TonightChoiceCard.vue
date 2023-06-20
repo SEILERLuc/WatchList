@@ -1,11 +1,17 @@
 <template>
-    <div class="max-w-24 sm:max-w-32 m-1.5 pb-2 bg-zinc-800 bg-opacity-50 rounded-2xl">
-        <div class="hover:font-bold hover:text-red-600 duration-100">
-            <img v-if="show.image !== null" :src="show.image.original"
-                class="mb-2 h-32 w-22 sm:h-44 sm:w-32 cursor-pointer rounded-md duration-300 hover:scale-105 hover:opacity-25"
+    <div class="m-1.5 bg-zinc-800 bg-opacity-50 rounded-2xl">
+        <div class="flex flex-row">
+            <img v-if="show.image !== null" :src="show.image.original" class="h-50 w-36 sm:h-64 sm:w-50 rounded-md"
                 alt="name" />
-            <div class="px-2 flex flex-row justify-between">
-                <h3 class="hidden sm:block dark:text-zinc-400 sm:text-sm text-white">{{ show.name }}</h3>
+            <div class="px-2 flex flex-col text-white">
+                <h3 class="hidden sm:block dark:text-zinc-400 sm:text-sm text-white uppercase font-bold">{{ show.name }}
+                </h3>
+                <ul>
+                    <li v-for="genre in show.genres">{{ genre }}</li>
+                </ul>
+                <ul>
+                    <li>{{ show.rating.average }}</li>
+                </ul>
             </div>
         </div>
     </div>
@@ -18,4 +24,17 @@ defineProps({
         required: true,
     }
 })
+
+const Rating5 = ref(0)
+
+function fromRating10ToRating5(N10) {
+    if (N10 === null) {
+        console.log("No rating info...")
+        return
+    }
+    console.log("Note to convert", N10)
+    console.log((N10 * 5) / 10)
+    Rating5.value = Math.round((N10 * 5) / 10)
+    console.log("Note converted : ", Rating5.value)
+}
 </script>

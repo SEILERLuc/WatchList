@@ -7,7 +7,7 @@
             <img v-else src="/img/UI/no-image.png" @click="showDetails = true"
                 class="mb-2 h-32 w-22 sm:h-44 sm:w-32 cursor-pointer rounded-md duration-300 hover:scale-105 hover:opacity-25"
                 alt="name" />
-            <div class="px-2 flex flex-col justify-between sm:h-22">
+            <div class="px-2 flex flex-col justify-between sm:min-h-32">
                 <h3 class="hidden sm:block dark:text-zinc-400 sm:text-sm text-white">{{ show.name }}</h3>
                 <!--ADD SHOW BUTTON-->
                 <n-button v-show="!user.isAlreadyInList(show.id)" @click="user.addToList(show), addedMessage(show)"
