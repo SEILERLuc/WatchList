@@ -9,7 +9,7 @@
         <div
             class="mt-2 mb-12 flex flex-col items-center text-white text-md px-10 max-w-[350px] sm:px-12 sm:max-w-xl sm:text-xl">
             <div class="flex flex-col items-center my-4">
-                <p class="text-justify mt-4">
+                <p class="text-center mt-4">
                     This app is here to give a response to problems like this :
                 </p>
             </div>
@@ -33,15 +33,20 @@
                     bar or filters with your family or your friends. It is composed by 4 pages :
                 </p>
             </div>
-            <!--ABOUT: HOME PAGE-->
-            <div class="flex flex-col items-center my-4">
+
+            <!--ABOUT THE PAGES OF THE APP-->
+            <AboutHome />
+            <AboutResearch />
+            <AboutMylist />
+            <AboutWSWWT />
+
+            <!--<div class="flex flex-col items-center my-4">
                 <img src="/img/UI/home.png" class="w-8" alt="HOME PAGE" />
                 <p class="text-justify mt-4">
                     The page Home show you some of shows availables, from the beginning of the API (the first 250 shows).
                     They are suggestions for you.
                 </p>
             </div>
-            <!--ABOUT: RESEARCH PAGE-->
             <div class="flex flex-col items-center my-4">
                 <img src="/img/UI/research.png" class="w-10" alt="RESEARCH PAGE" />
                 <p class="text-justify my-4">
@@ -53,7 +58,6 @@
                     rating and the summary. You can choose to add the show to your list too, by clicking the button.
                 </p>
             </div>
-            <!--ABOUT: YOUR LIST PAGE-->
             <div class="flex flex-col items-center my-4">
                 <img src="/img/UI/list.png" class="w-8" alt="RESEARCH PAGE" />
                 <p class="text-justify my-4">
@@ -64,7 +68,6 @@
                     clear all the list !
                 </p>
             </div>
-            <!--ABOUT: CHOSEN SHOW PAGE-->
             <div class="flex flex-col items-center my-4">
                 <img src="/img/UI/pop-corn.png" class="w-8" alt="CHOSEN SHOW" />
                 <p class="text-justify my-4">
@@ -73,8 +76,8 @@
                     <i><b>choose for you a random show</b></i>, between all of them from your list. But you can restart the
                     choice if you do not like it.
                 </p>
-            </div>
-            <p class="text-center my-4">
+            </div>-->
+            <p class="text-center my-4 font-bold">
                 !!! You don't need any registration. Your list is saved when you refresh the page or close your browser. !!!
             </p>
         </div>

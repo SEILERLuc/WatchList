@@ -62,11 +62,12 @@ defineProps({
 })
 
 function addedMessage(show) {
-    console.log(show, show.name)
-    //message.success(show.name, "added to your list")
+    //console.log(show, show.name)
+    message.success("Added to your list")
 }
+
 function deletedMessage(show) {
-    //message.success(show.name, "deleted from your list")
+    message.success("Deleted from your list")
 }
 
 </script>

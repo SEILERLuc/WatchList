@@ -5,7 +5,6 @@
 
         <div class="flex flex-col items-center mb-8">
             <h2 class="color-white mb-1 mt-2 py-2 text-lg font-bold sm:text-3xl">Research a show</h2>
-            <img src="/img/UI/research.png" class="w-16 mb-4" alt="research" />
             <n-input @update:value="debounce(searchByName, 500)" class="text-white" v-model:value="search" type="text"
                 placeholder="Flash, Homeland, Arrow..." />
         </div>
@@ -44,6 +43,13 @@
         </div>
         <!--<pre v-for="show in shows">{{ show.name }}, {{ show.id }}</pre>-->
 
+        <div class="flex flex-col items-center justify-center">
+            <div
+                class="mt-2 mb-12 flex flex-col items-center text-white text-md px-10 max-w-[350px] sm:px-12 sm:max-w-xl sm:text-xl">
+                <AboutResearch />
+            </div>
+        </div>
+
         <AppFooter />
     </div>
 </template>
@@ -73,7 +79,7 @@ async function searchByName() {
         shows.value.push(response.data.value[i].show)
     }
     //shows.value = response.data.value
-    console.log("RESULTS", shows.value)
+    //console.log("RESULTS", shows.value)
 }
 </script>
 
