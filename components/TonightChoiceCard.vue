@@ -11,6 +11,10 @@
                 </ul>
                 <ul>
                     <li>{{ show.rating.average }}</li>
+                    <li v-if="Rating5 !== 0" class="flex flex-row items-center">
+                        <img src="/img/UI/star.png" class="w-6" alt="rating star" v-for="star in Rating5" />{{ star }}
+                    </li>
+                    <li v-else>No rating infos</li>
                 </ul>
             </div>
         </div>
@@ -25,7 +29,8 @@ defineProps({
     }
 })
 
-const Rating5 = ref(0)
+const Rating5 = ref(4)
+fromRating10ToRating5(5)
 
 function fromRating10ToRating5(N10) {
     if (N10 === null) {
@@ -35,6 +40,7 @@ function fromRating10ToRating5(N10) {
     console.log("Note to convert", N10)
     console.log((N10 * 5) / 10)
     Rating5.value = Math.round((N10 * 5) / 10)
+    //Rating5.value = 5
     console.log("Note converted : ", Rating5.value)
 }
 </script>

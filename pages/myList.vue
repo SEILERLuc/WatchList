@@ -2,10 +2,10 @@
     <div class="relative bg-[#090A0B] min-h-screen">
         <AppHeader />
         <!--ABOUT : THE USER LIST-->
-        <div class="flex flex-col items-center justify-center">
-            <img src="/img/UI/WSWWT-logo-v2.png" class="mb-6 relative max-h-80 w-[150px] max-w-[75%]" alt="background" />
+        <div class="sm:mt-10 flex flex-col items-center justify-center">
+            <img src="/img/UI/WSWWT-logo-v2.png" class="my-6 relative max-h-80 w-[150px] max-w-[75%]" alt="background" />
             <h1 class="text-center text-sm font-extrabold uppercase text-red-600 mx-4 sm:mb-12 sm:text-2xl md:w-[90%]">
-                Your list
+                My list
             </h1>
             <div class="text-white text-md px-10 sm:px-12 sm:max-w-6xl sm:text-xl">
                 <p class="text-justify sm:text-center my-2">
@@ -29,7 +29,7 @@
         <!-- THE LIST OF THE SERIES REGISTERED-->
         <div v-show="user.showList.length !== 0" class="mb-16 flex flex-col items-center">
             <ul class="mb-48 mt-10 flex flex-wrap justify-center font-mono text-xs max-w-7xl">
-                <UserShowList />
+                <ListCard v-for="show in user.showList" :show="show" />
             </ul>
             <h2 v-show="user.showList.length === 0" class="color-white mb-1 mt-2 py-2 text-lg font-bold sm:text-3xl">
                 Nothing in your list.<br> Return to home to add shows in your wachlist !

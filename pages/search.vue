@@ -4,6 +4,8 @@
         <AppTitle />
 
         <div class="flex flex-col items-center mb-8">
+            <h2 class="color-white mb-1 mt-2 py-2 text-lg font-bold sm:text-3xl">Research a show</h2>
+            <img src="/img/UI/research.png" class="w-16 mb-4" alt="research" />
             <n-input @update:value="debounce(searchByName, 500)" class="text-white" v-model:value="search" type="text"
                 placeholder="Flash, Homeland, Arrow..." />
         </div>
@@ -42,7 +44,6 @@
         </div>
         <!--<pre v-for="show in shows">{{ show.name }}, {{ show.id }}</pre>-->
 
-        <AppAbout />
         <AppFooter />
     </div>
 </template>

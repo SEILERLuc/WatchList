@@ -4,12 +4,12 @@
 }
 
 ::-webkit-scrollbar {
-    width: 15px;
+    width: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
     border-radius: 10px;
-    background-color: #D62929;
+    background-color: #360303;
     background-image: -webkit-linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.4) 50%, transparent, transparent)
 }
 
@@ -31,9 +31,19 @@
 
 .n-card__content {
     max-height: 1000px !important;
-    padding: 10px !important;
+    padding: 4px !important;
 }
 
+.n-card-header__main {
+    color: rgb(199, 199, 199) !important;
+}
+
+.n-card-header {
+    padding-left: 10px !important;
+    padding-bottom: 5px !important;
+}
+
+/*CUSTOM NAIVE UI BUTTON*/
 .n-button {
     background-color: #251a1a !important;
 }
