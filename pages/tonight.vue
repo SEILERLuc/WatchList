@@ -19,7 +19,7 @@
         <div class="text-lg flex flex-col items-center mb-8">
             <button type="button" class="text-white bg-red hover:rotate-180 duration-400"
                 @click="randomChoice = user.chooseShow(), changeMessage()">
-                <img src="img/UI/change-button.png" class="w-12 sm:w-max" alt="change" />
+                <img src="/img/UI/change-button.png" class="w-12 sm:w-max" alt="change" />
             </button>
             <h3 class="text-white">Restart the choice</h3>
         </div>
