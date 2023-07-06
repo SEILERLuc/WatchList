@@ -47,5 +47,4 @@ randomChoice.value = user.chooseShow()
 function changeMessage() {
     message.success("Other show selected !")
 }
-
 </script>

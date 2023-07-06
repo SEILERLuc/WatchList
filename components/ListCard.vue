@@ -21,7 +21,7 @@
         </div>
         <n-modal v-model:show="showDetails" style="background-color: #5e0f0f;" class="p-0">
             <n-card v-model:show="showDetails" :title="show.name" :mask-closable="false" :bordered="false" size="small"
-                role="dialog" aria-modal="true" class="w-150 max-h-[80%]">
+                role="dialog" aria-modal="true" class="lg:w-150 max-h-[80%]">
                 <div class="rounded bg-black p-5 text-white">
                     <div class="mb-2">
                         <h2 class="uppercase font-bold">Genres : {{ show.title }}</h2>
@@ -33,7 +33,7 @@
                     </div>
                     <div class="mb-2">
                         <h2 class="mb-2 uppercase font-bold">Description :</h2>
-                        <p class="text-left">{{ show.summary }}</p>
+                        <div class="text-left" v-html="show.summary" />
                     </div>
                     <div>
                         <h2 class="uppercase font-bold">Average: </h2>

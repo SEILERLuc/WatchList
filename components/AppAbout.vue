@@ -33,50 +33,11 @@
                     bar or filters with your family or your friends. It is composed by 4 pages :
                 </p>
             </div>
-
             <!--ABOUT THE PAGES OF THE APP-->
             <AboutHome />
             <AboutResearch />
             <AboutMylist />
             <AboutWSWWT />
-
-            <!--<div class="flex flex-col items-center my-4">
-                <img src="/img/UI/home.png" class="w-8" alt="HOME PAGE" />
-                <p class="text-justify mt-4">
-                    The page Home show you some of shows availables, from the beginning of the API (the first 250 shows).
-                    They are suggestions for you.
-                </p>
-            </div>
-            <div class="flex flex-col items-center my-4">
-                <img src="/img/UI/research.png" class="w-10" alt="RESEARCH PAGE" />
-                <p class="text-justify my-4">
-                    You can research your own shows in the <i><b>Research</b></i> page. When you tap a name, the app make a
-                    research to the API and show you the returned response. There is a <i><b>limit result of 10</b></i>.
-                </p>
-                <p class="text-justify">
-                    Then, you can choose to find more informations by clicking the show. You can access to the title, the
-                    rating and the summary. You can choose to add the show to your list too, by clicking the button.
-                </p>
-            </div>
-            <div class="flex flex-col items-center my-4">
-                <img src="/img/UI/list.png" class="w-8" alt="RESEARCH PAGE" />
-                <p class="text-justify my-4">
-                    The number of shows in your list increase when you add them to your list page. Here, you can <i><b>see
-                            all
-                            the shows registered</b></i>, and can choose to <i><b>keep them or not</b></i>. You can also
-                    choose to
-                    clear all the list !
-                </p>
-            </div>
-            <div class="flex flex-col items-center my-4">
-                <img src="/img/UI/pop-corn.png" class="w-8" alt="CHOSEN SHOW" />
-                <p class="text-justify my-4">
-                    This page (WSWWT : What Sould We Watch Tonight) appears at the moment you choose your first show, and
-                    add it to your list. This page
-                    <i><b>choose for you a random show</b></i>, between all of them from your list. But you can restart the
-                    choice if you do not like it.
-                </p>
-            </div>-->
             <p class="text-center my-4 font-bold">
                 !!! You don't need any registration. Your list is saved when you refresh the page or close your browser. !!!
             </p>

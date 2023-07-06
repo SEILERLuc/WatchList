@@ -34,10 +34,6 @@
         <div>
           <!--CARD LIST OF THE SHOWS-->
           <ul class="mb-1 mt-1 flex flex-wrap justify-center font-mono text-xs max-w-7xl">
-            <!--<ListCard v-for="show in filteredList()" :show="show" @addToList="addToList" />
-            <div v-if="userInput && !filteredList().length">
-              <h2 class="color-white mb-1 mt-2 py-2 text-2xl font-bold">No result found.</h2>
-            </div>-->
             <ListCard v-for="show in filteredList()" :show="show" />
             <div v-if="userInput && !filteredList().length">
               <h2 class="color-white mb-1 mt-2 py-2 text-2xl font-bold">No result found.</h2>
@@ -70,7 +66,6 @@ const { data: shows } = await useAsyncData(
 }
 )
 
-//console.log(shows.value[0].name)
 let userInput = ref("")
 const genres = ref(['All', 'Horror', 'Comedy', 'Drama', 'Action', 'Crime', 'Music'])
 const activeGenre = ref('All')
