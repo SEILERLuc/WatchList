@@ -74,6 +74,18 @@
 </template>
 
 <script setup>
+const title = ref("Test - WSWWT?");
+const description = ref("Page de test pour le développement");
+useHead({
+  title,
+  meta: [
+    {
+      name: "description",
+      content: description,
+    },
+  ],
+});
+
 const search = ref(null);
 const { data: shows } = await useAsyncData(
   "shows",

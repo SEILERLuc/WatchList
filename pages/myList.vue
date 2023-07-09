@@ -80,6 +80,20 @@
 import AboutMylist from "~/components/AboutMylist.vue";
 import { useUserStore } from "~/stores/user";
 
+const title = ref("My List - WSWWT?");
+const description = ref(
+  "The number of shows in your list increase when you add them to your list page. Here, you can see all the shows registered, and can choose to keep them or not. You can also choose to clear all the list !"
+);
+useHead({
+  title,
+  meta: [
+    {
+      name: "description",
+      content: description,
+    },
+  ],
+});
+
 const user = useUserStore();
 const message = useMessage();
 const showModal = ref(false);

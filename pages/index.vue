@@ -43,6 +43,20 @@
 import AppAbout from "~/components/AppAbout.vue";
 import { debounce } from "~/composables/utils";
 
+const title = ref("Home - WSWWT?");
+const description = ref(
+  "In the Home page, you can research your own shows. When you tap a name, the app make a research to the API and show you the returned response. There is a limit result of 10."
+);
+useHead({
+  title,
+  meta: [
+    {
+      name: "description",
+      content: description,
+    },
+  ],
+});
+
 const search = ref(null);
 const shows = ref([]);
 

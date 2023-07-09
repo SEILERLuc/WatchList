@@ -55,6 +55,20 @@
 <script setup>
 import { useUserStore } from "~/stores/user";
 
+const title = ref("Tonight Choice - WSWWT?");
+const description = ref(
+  "This page (WSWWT : What Sould We Watch Tonight) appears at the moment you choose your first show, and add it to your list. This page choose for you a random show, between all of them from your list. But you can restart the choice if you do not like it."
+);
+useHead({
+  title,
+  meta: [
+    {
+      name: "description",
+      content: description,
+    },
+  ],
+});
+
 const user = useUserStore();
 const randomChoice = ref(null);
 const message = useMessage();
