@@ -1,5 +1,7 @@
 <template>
-    <!--<AppHeader/>-->
+  <div class="relative bg-[#090A0B] min-h-screen">
+    <NavApp />
     <slot />
-    <!--AppFooter-->
+    <AppFooter />
+  </div>
 </template>
